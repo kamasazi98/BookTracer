@@ -1,17 +1,41 @@
+using Microsoft.Extensions.DependencyInjection;
+using BookTracer.Infrastracture;
+using BookTracer.Infrastracture.Database;
 namespace BookTracer
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        private static IServiceProvider serviceProvider;
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+            serviceProvider = services.BuildServiceProvider();
+
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+
+            var databaseMigration = serviceProvider.GetService(typeof(IDatabaseMigration)) as IDatabaseMigration;
+            if (databaseMigration == null)
+                throw new ArgumentNullException(nameof(databaseMigration));
+            Migrations(databaseMigration);
+
+            var mainForm = serviceProvider.GetRequiredService<Form1>();
+            Application.Run(mainForm);
+        }
+        private static void ConfigureServices(ServiceCollection services)
+        {
+            services.RegisterDatabaseContext();
+            services.RegisterRepositories();
+
+            services.AddScoped<Form1>();
+        }
+        private static void Migrations(IDatabaseMigration databaseMigration)
+        {
+            databaseMigration.Migration_001();
         }
     }
 }
