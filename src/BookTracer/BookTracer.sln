@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTracer", "BookTracer\BookTracer.csproj", "{A27533D7-D00E-4560-B409-1D79864A76ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTracer.Domain", "BookTracer.Domain\BookTracer.Domain.csproj", "{EDC708B6-2CA3-458A-B479-9A7D6DA45914}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTracer.Infrastracture", "BookTracer.Infrastracture\BookTracer.Infrastracture.csproj", "{7D45A751-7EB9-4C8F-8698-9650D7610F32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A27533D7-D00E-4560-B409-1D79864A76ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A27533D7-D00E-4560-B409-1D79864A76ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A27533D7-D00E-4560-B409-1D79864A76ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDC708B6-2CA3-458A-B479-9A7D6DA45914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC708B6-2CA3-458A-B479-9A7D6DA45914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC708B6-2CA3-458A-B479-9A7D6DA45914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC708B6-2CA3-458A-B479-9A7D6DA45914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D45A751-7EB9-4C8F-8698-9650D7610F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D45A751-7EB9-4C8F-8698-9650D7610F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D45A751-7EB9-4C8F-8698-9650D7610F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D45A751-7EB9-4C8F-8698-9650D7610F32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
