@@ -11,7 +11,10 @@ namespace BookTracer.Infrastracture.Database
     {
         private const string DatabaseName = "BookTracer";
         public SqliteConnection RetrieveConnection()
-            => new SqliteConnection(DatabaseName);
+        {
+            SQLitePCL.Batteries.Init();
+            return new SqliteConnection($"Data source={DatabaseName}"); ;
+        }
         public SqliteCommand RetrieveCommand(string sql, SqliteConnection connection)
             => new SqliteCommand(sql, connection);
     }

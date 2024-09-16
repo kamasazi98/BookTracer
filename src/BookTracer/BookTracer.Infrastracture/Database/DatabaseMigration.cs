@@ -1,4 +1,5 @@
 ﻿using BookTracer.Domain.Domains;
+using BookTracer.Infrastracture.Sql.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,18 +20,8 @@ namespace BookTracer.Infrastracture.Database
         {
             using var connection = dbContext.RetrieveConnection();
             connection.Open();
-            string createAuthors = "CREATE TABLE IF NOT EXISTS Authors (" + Environment.NewLine;
-            createAuthors += $"{nameof(IAuthor.Id)} TEXT PRIMARY KEY," + Environment.NewLine;
-            createAuthors += $"{nameof(IAuthor.FirstName)} TEXT NOT NULL," + Environment.NewLine;
-            createAuthors += $"{nameof(IAuthor.LastName)} TEXT NOT NULL" + Environment.NewLine;
-            createAuthors += $");" + Environment.NewLine;
-
-            string createBooks = "CREATE TABLE IF NOT EXISTS Books (" + Environment.NewLine;
-            createBooks += $"{nameof(IBook.Id)} TEXT PRIMARY KEY," + Environment.NewLine;
-            createBooks += $"{nameof(IBook.Name)} TEXT NOT NULL," + Environment.NewLine;
-            createBooks += $"{nameof(IBook.AuthorId)} TEXT NOT NULL," + Environment.NewLine;
-            createBooks += $"FOREIGN KEY ({nameof(IBook.AuthorId)}) REFERENCES Authors({nameof(IAuthor.Id)}) ON DELETE CASCADE" + Environment.NewLine;
-            createAuthors += $");" + Environment.NewLine;
+            string createAuthors = Commands.CreateTableAuthors;
+            string createBooks = Commands.CreateTableBooks;
 
             using var commandCreateAuthors = dbContext.RetrieveCommand(createAuthors, connection);
             commandCreateAuthors.ExecuteNonQuery();
