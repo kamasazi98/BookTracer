@@ -34,7 +34,12 @@
             buttonAuthorList = new Button();
             buttonAddBook = new Button();
             buttonImport = new Button();
+            label1 = new Label();
+            panelFormTopTitle = new Panel();
+            labelStart = new Label();
             panelLeft.SuspendLayout();
+            panelAppName.SuspendLayout();
+            panelFormTopTitle.SuspendLayout();
             SuspendLayout();
             // 
             // panelLeft
@@ -54,6 +59,7 @@
             // panelAppName
             // 
             panelAppName.BackColor = Color.FromArgb(39, 39, 58);
+            panelAppName.Controls.Add(label1);
             panelAppName.Dock = DockStyle.Top;
             panelAppName.Location = new Point(0, 0);
             panelAppName.Name = "panelAppName";
@@ -122,17 +128,55 @@
             buttonImport.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonImport.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.ForeColor = Color.LightGray;
+            label1.Location = new Point(21, 34);
+            label1.Name = "label1";
+            label1.Size = new Size(91, 21);
+            label1.TabIndex = 1;
+            label1.Text = "Book Tracer";
+            // 
+            // panelFormTopTitle
+            // 
+            panelFormTopTitle.BackColor = Color.FromArgb(0, 150, 136);
+            panelFormTopTitle.Controls.Add(labelStart);
+            panelFormTopTitle.Dock = DockStyle.Top;
+            panelFormTopTitle.Location = new Point(130, 0);
+            panelFormTopTitle.Name = "panelFormTopTitle";
+            panelFormTopTitle.Size = new Size(670, 91);
+            panelFormTopTitle.TabIndex = 1;
+            // 
+            // labelStart
+            // 
+            labelStart.Anchor = AnchorStyles.None;
+            labelStart.AutoSize = true;
+            labelStart.Font = new Font("Impact", 30F);
+            labelStart.ForeColor = Color.White;
+            labelStart.Location = new Point(273, 21);
+            labelStart.Name = "labelStart";
+            labelStart.Size = new Size(117, 48);
+            labelStart.TabIndex = 0;
+            labelStart.Text = "START";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(panelFormTopTitle);
             Controls.Add(panelLeft);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             panelLeft.ResumeLayout(false);
+            panelAppName.ResumeLayout(false);
+            panelAppName.PerformLayout();
+            panelFormTopTitle.ResumeLayout(false);
+            panelFormTopTitle.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -144,5 +188,8 @@
         private Button buttonAuthorList;
         private Button buttonAddBook;
         private Button buttonImport;
+        private Label label1;
+        private Panel panelFormTopTitle;
+        private Label labelStart;
     }
 }
