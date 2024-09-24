@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using BookTracer.Infrastracture;
 using BookTracer.Infrastracture.Database;
+using BookTracer.Controls;
 namespace BookTracer
 {
     internal static class Program

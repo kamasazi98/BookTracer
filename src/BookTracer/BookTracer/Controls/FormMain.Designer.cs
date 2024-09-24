@@ -1,4 +1,4 @@
-﻿namespace BookTracer
+﻿namespace BookTracer.Controls
 {
     partial class Form1
     {
@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             panelLeft = new Panel();
-            panelAppName = new Panel();
-            buttonBookList = new Button();
-            buttonAuthorList = new Button();
-            buttonAddBook = new Button();
             buttonImport = new Button();
+            buttonAddBook = new Button();
+            buttonAuthorList = new Button();
+            buttonBookList = new Button();
+            panelAppName = new Panel();
             label1 = new Label();
             panelFormTopTitle = new Panel();
             labelStart = new Label();
@@ -56,15 +56,50 @@
             panelLeft.Size = new Size(130, 450);
             panelLeft.TabIndex = 0;
             // 
-            // panelAppName
+            // buttonImport
             // 
-            panelAppName.BackColor = Color.FromArgb(39, 39, 58);
-            panelAppName.Controls.Add(label1);
-            panelAppName.Dock = DockStyle.Top;
-            panelAppName.Location = new Point(0, 0);
-            panelAppName.Name = "panelAppName";
-            panelAppName.Size = new Size(130, 91);
-            panelAppName.TabIndex = 1;
+            buttonImport.Dock = DockStyle.Top;
+            buttonImport.FlatAppearance.BorderColor = Color.FromArgb(39, 39, 58);
+            buttonImport.FlatStyle = FlatStyle.Flat;
+            buttonImport.ForeColor = Color.Gainsboro;
+            buttonImport.Image = Properties.Resources.icons8_database_import_32;
+            buttonImport.Location = new Point(0, 271);
+            buttonImport.Name = "buttonImport";
+            buttonImport.Size = new Size(130, 60);
+            buttonImport.TabIndex = 3;
+            buttonImport.Text = " Importuj";
+            buttonImport.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonImport.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddBook
+            // 
+            buttonAddBook.Dock = DockStyle.Top;
+            buttonAddBook.FlatAppearance.BorderColor = Color.FromArgb(39, 39, 58);
+            buttonAddBook.FlatStyle = FlatStyle.Flat;
+            buttonAddBook.ForeColor = Color.Gainsboro;
+            buttonAddBook.Image = Properties.Resources.icons8_add_database_32;
+            buttonAddBook.Location = new Point(0, 211);
+            buttonAddBook.Name = "buttonAddBook";
+            buttonAddBook.Size = new Size(130, 60);
+            buttonAddBook.TabIndex = 2;
+            buttonAddBook.Text = " Dodaj książkę";
+            buttonAddBook.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonAddBook.UseVisualStyleBackColor = true;
+            // 
+            // buttonAuthorList
+            // 
+            buttonAuthorList.Dock = DockStyle.Top;
+            buttonAuthorList.FlatAppearance.BorderColor = Color.FromArgb(39, 39, 58);
+            buttonAuthorList.FlatStyle = FlatStyle.Flat;
+            buttonAuthorList.ForeColor = Color.Gainsboro;
+            buttonAuthorList.Image = Properties.Resources.icons8_books_32;
+            buttonAuthorList.Location = new Point(0, 151);
+            buttonAuthorList.Name = "buttonAuthorList";
+            buttonAuthorList.Size = new Size(130, 60);
+            buttonAuthorList.TabIndex = 1;
+            buttonAuthorList.Text = " Lista autorów";
+            buttonAuthorList.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonAuthorList.UseVisualStyleBackColor = true;
             // 
             // buttonBookList
             // 
@@ -83,50 +118,15 @@
             buttonBookList.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonBookList.UseVisualStyleBackColor = true;
             // 
-            // buttonAuthorList
+            // panelAppName
             // 
-            buttonAuthorList.Dock = DockStyle.Top;
-            buttonAuthorList.FlatAppearance.BorderColor = Color.FromArgb(39, 39, 58);
-            buttonAuthorList.FlatStyle = FlatStyle.Flat;
-            buttonAuthorList.ForeColor = Color.Gainsboro;
-            buttonAuthorList.Image = Properties.Resources.icons8_books_32;
-            buttonAuthorList.Location = new Point(0, 151);
-            buttonAuthorList.Name = "buttonAuthorList";
-            buttonAuthorList.Size = new Size(130, 60);
-            buttonAuthorList.TabIndex = 1;
-            buttonAuthorList.Text = " Lista autorów";
-            buttonAuthorList.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonAuthorList.UseVisualStyleBackColor = true;
-            // 
-            // buttonAddBook
-            // 
-            buttonAddBook.Dock = DockStyle.Top;
-            buttonAddBook.FlatAppearance.BorderColor = Color.FromArgb(39, 39, 58);
-            buttonAddBook.FlatStyle = FlatStyle.Flat;
-            buttonAddBook.ForeColor = Color.Gainsboro;
-            buttonAddBook.Image = Properties.Resources.icons8_add_database_32;
-            buttonAddBook.Location = new Point(0, 211);
-            buttonAddBook.Name = "buttonAddBook";
-            buttonAddBook.Size = new Size(130, 60);
-            buttonAddBook.TabIndex = 2;
-            buttonAddBook.Text = " Dodaj książkę";
-            buttonAddBook.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonAddBook.UseVisualStyleBackColor = true;
-            // 
-            // buttonImport
-            // 
-            buttonImport.Dock = DockStyle.Top;
-            buttonImport.FlatAppearance.BorderColor = Color.FromArgb(39, 39, 58);
-            buttonImport.FlatStyle = FlatStyle.Flat;
-            buttonImport.ForeColor = Color.Gainsboro;
-            buttonImport.Image = Properties.Resources.icons8_database_import_32;
-            buttonImport.Location = new Point(0, 271);
-            buttonImport.Name = "buttonImport";
-            buttonImport.Size = new Size(130, 60);
-            buttonImport.TabIndex = 3;
-            buttonImport.Text = " Importuj";
-            buttonImport.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonImport.UseVisualStyleBackColor = true;
+            panelAppName.BackColor = Color.FromArgb(39, 39, 58);
+            panelAppName.Controls.Add(label1);
+            panelAppName.Dock = DockStyle.Top;
+            panelAppName.Location = new Point(0, 0);
+            panelAppName.Name = "panelAppName";
+            panelAppName.Size = new Size(130, 91);
+            panelAppName.TabIndex = 1;
             // 
             // label1
             // 

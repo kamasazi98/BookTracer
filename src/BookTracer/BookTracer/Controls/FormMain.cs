@@ -1,4 +1,4 @@
-namespace BookTracer
+namespace BookTracer.Controls
 {
     public partial class Form1 : Form
     {
