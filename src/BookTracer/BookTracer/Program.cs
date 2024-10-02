@@ -24,7 +24,7 @@ namespace BookTracer
                 throw new ArgumentNullException(nameof(databaseMigration));
             Migrations(databaseMigration);
 
-            var mainForm = serviceProvider.GetRequiredService<Form1>();
+            var mainForm = serviceProvider.GetRequiredService<FormMain>();
             Application.Run(mainForm);
         }
         private static void ConfigureServices(ServiceCollection services)
@@ -32,7 +32,8 @@ namespace BookTracer
             services.RegisterDatabaseContext();
             services.RegisterRepositories();
 
-            services.AddScoped<Form1>();
+            services.AddScoped<FormMain>();
+            services.AddTransient<ControlAddBook>();
         }
         private static void Migrations(IDatabaseMigration databaseMigration)
         {

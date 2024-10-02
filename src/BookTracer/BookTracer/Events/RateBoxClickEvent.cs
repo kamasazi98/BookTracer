@@ -9,11 +9,11 @@ namespace BookTracer.Events
     public class RateBoxClickEvent
     {
         public RateBox RateBox { get; set; }
-        public object? Sender { get; set; }
-        public RateBoxClickEvent(RateBox rateBox, object? sender)
+        public List<PictureBox> PictureBoxes { get; set; }
+        public RateBoxClickEvent(RateBox rateBox, List<PictureBox> pictureBoxes)
         {
             RateBox = rateBox;
-            Sender = sender;
+            PictureBoxes = pictureBoxes;
         }
     }
     public enum RateBox

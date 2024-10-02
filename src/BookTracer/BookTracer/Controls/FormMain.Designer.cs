@@ -1,6 +1,6 @@
 ﻿namespace BookTracer.Controls
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -37,6 +37,7 @@
             label1 = new Label();
             panelFormTopTitle = new Panel();
             labelStart = new Label();
+            panelForControls = new Panel();
             panelLeft.SuspendLayout();
             panelAppName.SuspendLayout();
             panelFormTopTitle.SuspendLayout();
@@ -70,6 +71,7 @@
             buttonImport.Text = " Importuj";
             buttonImport.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonImport.UseVisualStyleBackColor = true;
+            buttonImport.Click += buttonImport_Click;
             // 
             // buttonAddBook
             // 
@@ -85,6 +87,7 @@
             buttonAddBook.Text = " Dodaj książkę";
             buttonAddBook.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAddBook.UseVisualStyleBackColor = true;
+            buttonAddBook.Click += buttonAddBook_Click;
             // 
             // buttonAuthorList
             // 
@@ -100,6 +103,7 @@
             buttonAuthorList.Text = " Lista autorów";
             buttonAuthorList.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonAuthorList.UseVisualStyleBackColor = true;
+            buttonAuthorList.Click += buttonAuthorList_Click;
             // 
             // buttonBookList
             // 
@@ -117,6 +121,7 @@
             buttonBookList.TextAlign = ContentAlignment.MiddleLeft;
             buttonBookList.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonBookList.UseVisualStyleBackColor = true;
+            buttonBookList.Click += buttonBookList_Click;
             // 
             // panelAppName
             // 
@@ -161,15 +166,24 @@
             labelStart.TabIndex = 0;
             labelStart.Text = "START";
             // 
-            // Form1
+            // panelForControls
+            // 
+            panelForControls.Dock = DockStyle.Fill;
+            panelForControls.Location = new Point(130, 91);
+            panelForControls.Name = "panelForControls";
+            panelForControls.Size = new Size(670, 359);
+            panelForControls.TabIndex = 2;
+            // 
+            // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(panelForControls);
             Controls.Add(panelFormTopTitle);
             Controls.Add(panelLeft);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form1";
+            Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             panelLeft.ResumeLayout(false);
@@ -191,5 +205,6 @@
         private Label label1;
         private Panel panelFormTopTitle;
         private Label labelStart;
+        private Panel panelForControls;
     }
 }

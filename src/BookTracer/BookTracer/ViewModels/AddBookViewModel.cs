@@ -70,32 +70,42 @@ namespace BookTracer.ViewModels
         #endregion
         public void OnRateBoxClick(RateBoxClickEvent args)
         {
-            if (args.Sender == null || args.Sender is not PictureBox picBox)
-                return;
-
+            bool changeToFullStar = true;
+            string pictureBoxName = string.Empty;
             switch (args.RateBox)
             {
                 case RateBox.First:
                     FirstRate = !FirstRate;
-                    picBox.Image = FirstRate ? Resources.yellow_star : Resources.white_star;
+                    pictureBoxName = "pictureBoxFirstStar";
                     break;
                 case RateBox.Second:
                     SecondRate = !SecondRate;
-                    picBox.Image = SecondRate ? Resources.yellow_star : Resources.white_star;
+                    pictureBoxName = "pictureBoxSecondStar";
                     break;
                 case RateBox.Third:
                     ThirdRate = !ThirdRate;
-                    picBox.Image = ThirdRate ? Resources.yellow_star : Resources.white_star;
+                    pictureBoxName = "pictureBoxThridStar";
                     break;
                 case RateBox.Fourth:
                     FourthRate = !FourthRate;
-                    picBox.Image = FourthRate ? Resources.yellow_star : Resources.white_star;
+                    pictureBoxName = "pictureBoxFourthStar";
                     break;
                 case RateBox.Fifth:
                     FifthRate = !FifthRate;
-                    picBox.Image = FifthRate ? Resources.yellow_star : Resources.white_star;
+                    pictureBoxName = "pictureBoxFifthStar";
                     break;
             }
+            foreach (var pictureBox in args.PictureBoxes)
+            {
+                pictureBox.Image = changeToFullStar ? Resources.yellow_star : Resources.white_star;
+                
+                if (pictureBoxName.Equals(pictureBox.Name))
+                    changeToFullStar = false;
+            }
+        }
+        public void OnAdd()
+        {
+
         }
         public void OnRadioAuthorExistenceClick(RadioAuthorClickEvent args)
         {

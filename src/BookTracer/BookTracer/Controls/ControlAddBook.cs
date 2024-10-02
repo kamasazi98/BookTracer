@@ -22,15 +22,18 @@ namespace BookTracer.Controls
         {
             InitializeComponent();
             this.serviceProvider = serviceProvider;
+
             Context = new AddBookViewModel();
+            InitializeControls();
         }
         public void InitializeControls()
         {
-            pictureBoxFirstStar.Click += (sender, e) => Context.OnRateBoxClick(new RateBoxClickEvent(RateBox.First, sender));
-            pictureBoxSecondStar.Click += (sender, e) => Context.OnRateBoxClick(new RateBoxClickEvent(RateBox.Second, sender));
-            pictureBoxThridStar.Click += (sender, e) => Context.OnRateBoxClick(new RateBoxClickEvent(RateBox.Third, sender));
-            pictureBoxFourthStar.Click += (sender, e) => Context.OnRateBoxClick(new RateBoxClickEvent(RateBox.Fourth, sender));
-            pictureBoxFifthStar.Click += (sender, e) => Context.OnRateBoxClick(new RateBoxClickEvent(RateBox.Fifth, sender));
+            pictureBoxFirstStar.Click += (sender, e) => Context.OnRateBoxClick(new RateBoxClickEvent(RateBox.First, new List<PictureBox>() { pictureBoxFirstStar, pictureBoxSecondStar, pictureBoxThridStar, pictureBoxFourthStar, pictureBoxFifthStar }));
+            pictureBoxSecondStar.Click += (sender, e) => Context.OnRateBoxClick(new RateBoxClickEvent(RateBox.Second, new List<PictureBox>() { pictureBoxFirstStar, pictureBoxSecondStar, pictureBoxThridStar, pictureBoxFourthStar, pictureBoxFifthStar }));
+            pictureBoxThridStar.Click += (sender, e) => Context.OnRateBoxClick(new RateBoxClickEvent(RateBox.Third, new List<PictureBox>() { pictureBoxFirstStar, pictureBoxSecondStar, pictureBoxThridStar, pictureBoxFourthStar, pictureBoxFifthStar }));
+            pictureBoxFourthStar.Click += (sender, e) => Context.OnRateBoxClick(new RateBoxClickEvent(RateBox.Fourth, new List<PictureBox>() { pictureBoxFirstStar, pictureBoxSecondStar, pictureBoxThridStar, pictureBoxFourthStar, pictureBoxFifthStar }));
+            pictureBoxFifthStar.Click += (sender, e) => Context.OnRateBoxClick(new RateBoxClickEvent(RateBox.Fifth, new List<PictureBox>() { pictureBoxFirstStar, pictureBoxSecondStar, pictureBoxThridStar, pictureBoxFourthStar, pictureBoxFifthStar }));
+            buttonAdd.Click += (sender, e) => Context.OnAdd();
 
             radioButtonNewAuthor.Click += (sender, e) => Context.OnRadioAuthorExistenceClick(new RadioAuthorClickEvent(AuthorExistence.New));
             radioButtonExistingAuthor.Click += (sender, e) => Context.OnRadioAuthorExistenceClick(new RadioAuthorClickEvent(AuthorExistence.Exists));
