@@ -20,6 +20,14 @@ namespace BookTracer.Domain.Domains
             Books = new List<Book>();
             return this;
         }
+        public Author Load(string id, string firstName, string lastName, IEnumerable<Book> books)
+        {
+            Id = Guid.Parse(id);
+            FirstName = firstName;
+            LastName = lastName;
+            Books = books;
+            return this;
+        }
     }
 
     public interface IAuthor

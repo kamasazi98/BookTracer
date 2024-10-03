@@ -11,12 +11,14 @@ namespace BookTracer.Domain.Domains
         public Guid Id { get; private set; }
         public string Name { get; private set; }
         public Guid AuthorId { get; private set; }
+        public int Rate { get; private set; }
         public Author Author { get; private set; }
-        public Book Initialize(string name, Guid authorId)
+        public Book New(string name, Guid authorId, int rate)
         {
             Id = Guid.NewGuid();
             Name = name;
             AuthorId = authorId;
+            Rate = rate;
             return this;
         }
 
@@ -29,6 +31,6 @@ namespace BookTracer.Domain.Domains
         Guid AuthorId { get; }
         Author Author { get; }
 
-        Book Initialize(string name, Guid authorId);
+        Book New(string name, Guid authorId, int rate);
     }
 }

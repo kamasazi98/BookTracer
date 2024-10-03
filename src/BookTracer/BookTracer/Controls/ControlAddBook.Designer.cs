@@ -30,20 +30,20 @@
         {
             panelMain = new Panel();
             buttonAdd = new Button();
+            pictureBoxFifthStar = new PictureBox();
             label3 = new Label();
             textBoxAuthorLastName = new TextBox();
+            pictureBoxFourthStar = new PictureBox();
             textBoxAuthorFirstName = new TextBox();
             label2 = new Label();
-            radioButtonExistingAuthor = new RadioButton();
-            comboBoxExistingAuthor = new ComboBox();
-            radioButtonNewAuthor = new RadioButton();
-            pictureBoxFifthStar = new PictureBox();
-            pictureBoxFourthStar = new PictureBox();
             pictureBoxThridStar = new PictureBox();
-            pictureBoxSecondStar = new PictureBox();
-            pictureBoxFirstStar = new PictureBox();
+            radioButtonExistingAuthor = new RadioButton();
             textBoxBookName = new TextBox();
+            comboBoxExistingAuthor = new ComboBox();
+            pictureBoxSecondStar = new PictureBox();
+            radioButtonNewAuthor = new RadioButton();
             label1 = new Label();
+            pictureBoxFirstStar = new PictureBox();
             panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFifthStar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFourthStar).BeginInit();
@@ -72,7 +72,7 @@
             panelMain.Dock = DockStyle.Fill;
             panelMain.Location = new Point(0, 0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(586, 332);
+            panelMain.Size = new Size(350, 250);
             panelMain.TabIndex = 0;
             // 
             // buttonAdd
@@ -83,6 +83,16 @@
             buttonAdd.TabIndex = 9;
             buttonAdd.Text = "Dodaj";
             buttonAdd.UseVisualStyleBackColor = true;
+            // 
+            // pictureBoxFifthStar
+            // 
+            pictureBoxFifthStar.Image = Properties.Resources.white_star;
+            pictureBoxFifthStar.Location = new Point(267, 42);
+            pictureBoxFifthStar.Name = "pictureBoxFifthStar";
+            pictureBoxFifthStar.Size = new Size(30, 30);
+            pictureBoxFifthStar.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBoxFifthStar.TabIndex = 6;
+            pictureBoxFifthStar.TabStop = false;
             // 
             // label3
             // 
@@ -100,6 +110,16 @@
             textBoxAuthorLastName.Size = new Size(212, 23);
             textBoxAuthorLastName.TabIndex = 7;
             // 
+            // pictureBoxFourthStar
+            // 
+            pictureBoxFourthStar.Image = Properties.Resources.white_star;
+            pictureBoxFourthStar.Location = new Point(231, 42);
+            pictureBoxFourthStar.Name = "pictureBoxFourthStar";
+            pictureBoxFourthStar.Size = new Size(30, 30);
+            pictureBoxFourthStar.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBoxFourthStar.TabIndex = 5;
+            pictureBoxFourthStar.TabStop = false;
+            // 
             // textBoxAuthorFirstName
             // 
             textBoxAuthorFirstName.Location = new Point(108, 142);
@@ -116,6 +136,16 @@
             label2.TabIndex = 6;
             label2.Text = "Imię autora:";
             // 
+            // pictureBoxThridStar
+            // 
+            pictureBoxThridStar.Image = Properties.Resources.white_star;
+            pictureBoxThridStar.Location = new Point(195, 42);
+            pictureBoxThridStar.Name = "pictureBoxThridStar";
+            pictureBoxThridStar.Size = new Size(30, 30);
+            pictureBoxThridStar.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBoxThridStar.TabIndex = 4;
+            pictureBoxThridStar.TabStop = false;
+            // 
             // radioButtonExistingAuthor
             // 
             radioButtonExistingAuthor.AutoSize = true;
@@ -127,6 +157,13 @@
             radioButtonExistingAuthor.Text = "Istniejący autor";
             radioButtonExistingAuthor.UseVisualStyleBackColor = true;
             // 
+            // textBoxBookName
+            // 
+            textBoxBookName.Location = new Point(108, 13);
+            textBoxBookName.Name = "textBoxBookName";
+            textBoxBookName.Size = new Size(212, 23);
+            textBoxBookName.TabIndex = 1;
+            // 
             // comboBoxExistingAuthor
             // 
             comboBoxExistingAuthor.FormattingEnabled = true;
@@ -134,6 +171,16 @@
             comboBoxExistingAuthor.Name = "comboBoxExistingAuthor";
             comboBoxExistingAuthor.Size = new Size(212, 23);
             comboBoxExistingAuthor.TabIndex = 4;
+            // 
+            // pictureBoxSecondStar
+            // 
+            pictureBoxSecondStar.Image = Properties.Resources.white_star;
+            pictureBoxSecondStar.Location = new Point(159, 42);
+            pictureBoxSecondStar.Name = "pictureBoxSecondStar";
+            pictureBoxSecondStar.Size = new Size(30, 30);
+            pictureBoxSecondStar.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBoxSecondStar.TabIndex = 3;
+            pictureBoxSecondStar.TabStop = false;
             // 
             // radioButtonNewAuthor
             // 
@@ -146,45 +193,14 @@
             radioButtonNewAuthor.Text = "Nowy autor";
             radioButtonNewAuthor.UseVisualStyleBackColor = true;
             // 
-            // pictureBoxFifthStar
+            // label1
             // 
-            pictureBoxFifthStar.Image = Properties.Resources.white_star;
-            pictureBoxFifthStar.Location = new Point(267, 42);
-            pictureBoxFifthStar.Name = "pictureBoxFifthStar";
-            pictureBoxFifthStar.Size = new Size(30, 30);
-            pictureBoxFifthStar.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBoxFifthStar.TabIndex = 6;
-            pictureBoxFifthStar.TabStop = false;
-            // 
-            // pictureBoxFourthStar
-            // 
-            pictureBoxFourthStar.Image = Properties.Resources.white_star;
-            pictureBoxFourthStar.Location = new Point(231, 42);
-            pictureBoxFourthStar.Name = "pictureBoxFourthStar";
-            pictureBoxFourthStar.Size = new Size(30, 30);
-            pictureBoxFourthStar.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBoxFourthStar.TabIndex = 5;
-            pictureBoxFourthStar.TabStop = false;
-            // 
-            // pictureBoxThridStar
-            // 
-            pictureBoxThridStar.Image = Properties.Resources.white_star;
-            pictureBoxThridStar.Location = new Point(195, 42);
-            pictureBoxThridStar.Name = "pictureBoxThridStar";
-            pictureBoxThridStar.Size = new Size(30, 30);
-            pictureBoxThridStar.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBoxThridStar.TabIndex = 4;
-            pictureBoxThridStar.TabStop = false;
-            // 
-            // pictureBoxSecondStar
-            // 
-            pictureBoxSecondStar.Image = Properties.Resources.white_star;
-            pictureBoxSecondStar.Location = new Point(159, 42);
-            pictureBoxSecondStar.Name = "pictureBoxSecondStar";
-            pictureBoxSecondStar.Size = new Size(30, 30);
-            pictureBoxSecondStar.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBoxSecondStar.TabIndex = 3;
-            pictureBoxSecondStar.TabStop = false;
+            label1.AutoSize = true;
+            label1.Location = new Point(20, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Nazwa książki:";
             // 
             // pictureBoxFirstStar
             // 
@@ -196,29 +212,13 @@
             pictureBoxFirstStar.TabIndex = 2;
             pictureBoxFirstStar.TabStop = false;
             // 
-            // textBoxBookName
-            // 
-            textBoxBookName.Location = new Point(108, 13);
-            textBoxBookName.Name = "textBoxBookName";
-            textBoxBookName.Size = new Size(212, 23);
-            textBoxBookName.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(20, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(82, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Nazwa książki:";
-            // 
             // ControlAddBook
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelMain);
             Name = "ControlAddBook";
-            Size = new Size(586, 332);
+            Size = new Size(350, 250);
             panelMain.ResumeLayout(false);
             panelMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxFifthStar).EndInit();

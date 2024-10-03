@@ -9,6 +9,8 @@ namespace BookTracer.Domain.Repositories
 {
     public interface IAuthorRepository
     {
+        Author Create();
+        Author? Retrieve(string firstName, string lastName);
         List<Author> RetrieveAll();
         void Save(Author author);
     }

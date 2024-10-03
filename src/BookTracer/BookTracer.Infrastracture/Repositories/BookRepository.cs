@@ -14,6 +14,12 @@ namespace BookTracer.Infrastracture.Repositories
         {
             throw new NotImplementedException();
         }
+        public Book Retrieve(string bookName)
+        {
+            throw new NotImplementedException();
+        }
+        public Book Create()
+            => new Book();
 
         public List<Book> RetrieveAll()
         {

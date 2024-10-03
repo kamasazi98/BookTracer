@@ -31,9 +31,7 @@ namespace BookTracer
         {
             services.RegisterDatabaseContext();
             services.RegisterRepositories();
-
-            services.AddScoped<FormMain>();
-            services.AddTransient<ControlAddBook>();
+            services.RegisterUI();
         }
         private static void Migrations(IDatabaseMigration databaseMigration)
         {

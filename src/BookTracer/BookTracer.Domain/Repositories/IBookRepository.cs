@@ -12,5 +12,7 @@ namespace BookTracer.Domain.Repositories
         List<Book> RetrieveAll();
         Book Retrieve(Guid authorId);
         void Save(Book book);
+        Book Create();
+        Book Retrieve(string bookName);
     }
 }
