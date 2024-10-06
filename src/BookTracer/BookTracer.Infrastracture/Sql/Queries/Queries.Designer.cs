@@ -62,6 +62,22 @@ namespace BookTracer.Infrastracture.Sql.Queries {
         
         /// <summary>
         ///   Looks up a localized string similar to SELECT
+        ///b.[Id] 
+        ///, b.[Name] 
+        ///, b.[AuthorId]
+        ///, b.[Rate]
+        ///FROM [Books] b
+        ///WHERE [a].[Name] = @BookName 
+        ///.
+        /// </summary>
+        internal static string RetrieveByBookName {
+            get {
+                return ResourceManager.GetString("RetrieveByBookName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT
         ///a.[Id] 
         ///, a.[FirstName] 
         ///, a.[LastName]

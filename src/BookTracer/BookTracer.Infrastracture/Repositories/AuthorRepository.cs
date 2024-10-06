@@ -18,11 +18,11 @@ namespace BookTracer.Infrastracture.Repositories
         {
             this.dbContext = dbContext;
         }
-        public List<Author> RetrieveAll()
+        public List<IAuthor> RetrieveAll()
         {
             throw new NotImplementedException();
         }
-        public Author? Retrieve(string firstName, string lastName)
+        public IAuthor? Retrieve(string firstName, string lastName)
         {
             Author? author = null;
             string query = Queries.RetrieveByFirstNameAndLastName;
@@ -49,7 +49,7 @@ namespace BookTracer.Infrastracture.Repositories
         public Author Create()
             => new Author();
 
-        public void Save(Author author)
+        public void Save(IAuthor author)
         {
             throw new NotImplementedException();
         }

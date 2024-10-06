@@ -1,4 +1,6 @@
-﻿using BookTracer.Events;
+﻿using BookTracer.Domain.Domains;
+using BookTracer.Domain.Repositories;
+using BookTracer.Events;
 using BookTracer.Properties;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,18 @@ namespace BookTracer.ViewModels
 {
     public class AddBookViewModel : INotifyPropertyChanged
     {
+        private readonly IBookRepository bookRepository;
+        private readonly IAuthorRepository authorRepository;
+
+        public AddBookViewModel(IBookRepository bookRepository
+            , IAuthorRepository authorRepository)
+        {
+            this.bookRepository = bookRepository;
+            this.authorRepository = authorRepository;
+        }
+
         #region Properties
+        private int rate;
         public bool FirstRate { get; set; }
         public bool SecondRate { get; set; }
         public bool ThirdRate { get; set; }
@@ -28,7 +41,6 @@ namespace BookTracer.ViewModels
             }
         }
         private bool isExistingAuthor;
-
         public bool IsExistingAuthor
         {
             get => isExistingAuthor;
@@ -39,7 +51,6 @@ namespace BookTracer.ViewModels
             }
         }
         private string authorFirstName;
-
         public string AuthorFirstName
         {
             get => authorFirstName;
@@ -77,35 +88,94 @@ namespace BookTracer.ViewModels
                 case RateBox.First:
                     FirstRate = !FirstRate;
                     pictureBoxName = "pictureBoxFirstStar";
+                    rate = 1;
                     break;
                 case RateBox.Second:
                     SecondRate = !SecondRate;
                     pictureBoxName = "pictureBoxSecondStar";
+                    rate = 2;
                     break;
                 case RateBox.Third:
                     ThirdRate = !ThirdRate;
                     pictureBoxName = "pictureBoxThridStar";
+                    rate = 3;
                     break;
                 case RateBox.Fourth:
                     FourthRate = !FourthRate;
                     pictureBoxName = "pictureBoxFourthStar";
+                    rate = 4;
                     break;
                 case RateBox.Fifth:
                     FifthRate = !FifthRate;
                     pictureBoxName = "pictureBoxFifthStar";
+                    rate = 5;
                     break;
             }
             foreach (var pictureBox in args.PictureBoxes)
             {
                 pictureBox.Image = changeToFullStar ? Resources.yellow_star : Resources.white_star;
-                
+
                 if (pictureBoxName.Equals(pictureBox.Name))
                     changeToFullStar = false;
             }
         }
         public void OnAdd()
         {
+            try
+            {
+                if (!Validate())
+                    return;
 
+                var book = bookRepository.Create();
+                IAuthor? author = null;
+                if (IsExistingAuthor)
+                    author = authorRepository.Retrieve(AuthorFirstName, AuthorLastName);
+                else
+                {
+                    author = authorRepository.Create().Initialize(AuthorFirstName, AuthorLastName);
+                    authorRepository.Save(author);
+                }
+
+                if (author == null || (author != null && author.Id == Guid.Empty))
+                    throw new Exception("Nie został zainicjalizowany autor.");
+
+                book.New(BookName, author.Id, rate);
+                bookRepository.Save(book);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Podczas dodawania książki wystąpił błąd. {ex.Message}");
+            }
+        }
+        private bool Validate()
+        {
+            bool succeed = true;
+            string errorMessage = string.Empty;
+            if (string.IsNullOrEmpty(BookName))
+            {
+                errorMessage += $"Nazwa ksiązki musi być podana!" + Environment.NewLine;
+                succeed = false;
+            }
+            if (IsNewAuthor && string.IsNullOrEmpty(AuthorFirstName))
+            {
+                errorMessage += $"Imię autora musi zostać podane!" + Environment.NewLine;
+                succeed = false;
+            }
+            if (IsNewAuthor && string.IsNullOrEmpty(AuthorLastName))
+            {
+                errorMessage += $"Nazwisko autora musi zostać podane!" + Environment.NewLine;
+                succeed = false;
+            }
+            if (succeed && !string.IsNullOrEmpty(BookName) && bookRepository.IsExists(BookName))
+            {
+                errorMessage += $"Istnieje już taka książka [{BookName}] w bazie!" + Environment.NewLine;
+                succeed = false;
+            }
+
+            if (!string.IsNullOrEmpty(errorMessage))
+                MessageBox.Show(errorMessage);
+
+            return succeed;
         }
         public void OnRadioAuthorExistenceClick(RadioAuthorClickEvent args)
         {
@@ -121,6 +191,7 @@ namespace BookTracer.ViewModels
                     break;
             }
         }
+
         #region NotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
@@ -128,6 +199,5 @@ namespace BookTracer.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
-
     }
 }

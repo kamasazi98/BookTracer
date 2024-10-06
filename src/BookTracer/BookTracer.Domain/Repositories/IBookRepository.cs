@@ -13,6 +13,7 @@ namespace BookTracer.Domain.Repositories
         Book Retrieve(Guid authorId);
         void Save(Book book);
         Book Create();
-        Book Retrieve(string bookName);
+        Book? Retrieve(string bookName);
+        bool IsExists(string bookName);
     }
 }

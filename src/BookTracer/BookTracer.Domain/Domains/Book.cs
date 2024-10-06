@@ -21,6 +21,14 @@ namespace BookTracer.Domain.Domains
             Rate = rate;
             return this;
         }
+        public Book Load(string id, string name, string authorId, int rate)
+        {
+            Id = Guid.Parse(id);
+            Name = name;
+            AuthorId = Guid.Parse(authorId); ;
+            Rate = rate;
+            return this;
+        }
 
     }
 
