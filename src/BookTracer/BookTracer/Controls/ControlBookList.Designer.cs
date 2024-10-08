@@ -44,7 +44,7 @@
             advancedDataGridView.MaxFilterButtonImageHeight = 23;
             advancedDataGridView.Name = "advancedDataGridView";
             advancedDataGridView.RightToLeft = RightToLeft.No;
-            advancedDataGridView.Size = new Size(660, 367);
+            advancedDataGridView.Size = new Size(1150, 629);
             advancedDataGridView.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             advancedDataGridView.TabIndex = 0;
             // 
@@ -54,7 +54,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(advancedDataGridView);
             Name = "ControlBookList";
-            Size = new Size(660, 367);
+            Size = new Size(1150, 629);
             ((System.ComponentModel.ISupportInitialize)advancedDataGridView).EndInit();
             ResumeLayout(false);
         }

@@ -21,7 +21,7 @@ namespace BookTracer.Controls
         {
             InitializeComponent();
 
-            context = new BookListViewModel(serviceProvider.GetRequiredService<IBookRepository>());
+            context = new BookListViewModel(serviceProvider.GetRequiredService<IBookRepository>()).Initialize();
             this.serviceProvider = serviceProvider;
             InitializeBinding();
         }
@@ -47,7 +47,6 @@ namespace BookTracer.Controls
                     case nameof(BookListElementViewModel.AuthorLastName):
                         column.HeaderText = "Nazwisko autora";
                         break;
-
                 }
                 advancedDataGridView.SetFilterAndSortEnabled(column, true);
             }

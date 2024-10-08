@@ -27,6 +27,7 @@ namespace BookTracer
             services.AddTransient<ControlAddBook>();
             services.AddTransient<ControlImport>();
             services.AddTransient<ControlBookList>();
+            services.AddTransient<ControlAuthorList>();
 
             return services;
         }

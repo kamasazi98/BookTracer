@@ -22,7 +22,9 @@ namespace BookTracer.Controls
 
         private void buttonAuthorList_Click(object sender, EventArgs e)
         {
-
+            ActiveMainControl = serviceProvider.GetRequiredService<ControlAuthorList>();
+            panelForControls.Controls.Clear();
+            panelForControls.Controls.Add(ActiveMainControl);
         }
 
         private void buttonAddBook_Click(object sender, EventArgs e)

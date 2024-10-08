@@ -4,3 +4,4 @@ b.[Id]
 , b.[AuthorId]
 , b.[Rate]
 FROM [Books] b
+ORDER BY [b].[Name]

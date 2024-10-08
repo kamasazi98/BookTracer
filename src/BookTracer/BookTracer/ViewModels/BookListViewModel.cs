@@ -43,7 +43,7 @@ namespace BookTracer.ViewModels
 
         }
         private IBook Domain;
-        public int No { get; private set; }
+        public int No { get; }
         public string BookName => Domain.Name;
         public int BookRating => Domain.Rate;
         public string AuthorFirstName => Domain?.Author.FirstName ?? string.Empty;

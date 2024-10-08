@@ -20,7 +20,7 @@ namespace BookTracer.Infrastracture.Repositories
         }
         public List<IAuthor> RetrieveAll()
         {
-            throw new NotImplementedException();
+            return new List<IAuthor>();
         }
         public IAuthor? Retrieve(string firstName, string lastName)
         {

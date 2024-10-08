@@ -36,7 +36,7 @@
             panelAppName = new Panel();
             label1 = new Label();
             panelFormTopTitle = new Panel();
-            labelStart = new Label();
+            labelStartHeader = new Label();
             panelForControls = new Panel();
             panelLeft.SuspendLayout();
             panelAppName.SuspendLayout();
@@ -54,7 +54,7 @@
             panelLeft.Dock = DockStyle.Left;
             panelLeft.Location = new Point(0, 0);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new Size(130, 450);
+            panelLeft.Size = new Size(130, 720);
             panelLeft.TabIndex = 0;
             // 
             // buttonImport
@@ -147,38 +147,38 @@
             // panelFormTopTitle
             // 
             panelFormTopTitle.BackColor = Color.FromArgb(0, 150, 136);
-            panelFormTopTitle.Controls.Add(labelStart);
+            panelFormTopTitle.Controls.Add(labelStartHeader);
             panelFormTopTitle.Dock = DockStyle.Top;
             panelFormTopTitle.Location = new Point(130, 0);
             panelFormTopTitle.Name = "panelFormTopTitle";
-            panelFormTopTitle.Size = new Size(670, 91);
+            panelFormTopTitle.Size = new Size(1150, 91);
             panelFormTopTitle.TabIndex = 1;
             // 
-            // labelStart
+            // labelStartHeader
             // 
-            labelStart.Anchor = AnchorStyles.None;
-            labelStart.AutoSize = true;
-            labelStart.Font = new Font("Impact", 30F);
-            labelStart.ForeColor = Color.White;
-            labelStart.Location = new Point(273, 21);
-            labelStart.Name = "labelStart";
-            labelStart.Size = new Size(117, 48);
-            labelStart.TabIndex = 0;
-            labelStart.Text = "START";
+            labelStartHeader.Anchor = AnchorStyles.None;
+            labelStartHeader.AutoSize = true;
+            labelStartHeader.Font = new Font("Impact", 30F);
+            labelStartHeader.ForeColor = Color.White;
+            labelStartHeader.Location = new Point(513, 21);
+            labelStartHeader.Name = "labelStartHeader";
+            labelStartHeader.Size = new Size(117, 48);
+            labelStartHeader.TabIndex = 0;
+            labelStartHeader.Text = "START";
             // 
             // panelForControls
             // 
             panelForControls.Dock = DockStyle.Fill;
             panelForControls.Location = new Point(130, 91);
             panelForControls.Name = "panelForControls";
-            panelForControls.Size = new Size(670, 359);
+            panelForControls.Size = new Size(1150, 629);
             panelForControls.TabIndex = 2;
             // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1280, 720);
             Controls.Add(panelForControls);
             Controls.Add(panelFormTopTitle);
             Controls.Add(panelLeft);
@@ -204,7 +204,7 @@
         private Button buttonImport;
         private Label label1;
         private Panel panelFormTopTitle;
-        private Label labelStart;
+        private Label labelStartHeader;
         private Panel panelForControls;
     }
 }
