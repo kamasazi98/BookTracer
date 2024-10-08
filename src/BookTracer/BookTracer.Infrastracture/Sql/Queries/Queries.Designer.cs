@@ -67,6 +67,21 @@ namespace BookTracer.Infrastracture.Sql.Queries {
         ///, b.[AuthorId]
         ///, b.[Rate]
         ///FROM [Books] b
+        ///.
+        /// </summary>
+        internal static string RetrieveAll {
+            get {
+                return ResourceManager.GetString("RetrieveAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///b.[Id] 
+        ///, b.[Name] 
+        ///, b.[AuthorId]
+        ///, b.[Rate]
+        ///FROM [Books] b
         ///WHERE [a].[Name] = @BookName 
         ///.
         /// </summary>
@@ -88,6 +103,21 @@ namespace BookTracer.Infrastracture.Sql.Queries {
         internal static string RetrieveByFirstNameAndLastName {
             get {
                 return ResourceManager.GetString("RetrieveByFirstNameAndLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///a.[Id] 
+        ///, a.[FirstName] 
+        ///, a.[LastName]
+        ///FROM [Authors] a
+        ///WHERE [a].[Id] = @Id
+        ///.
+        /// </summary>
+        internal static string RetrieveByGuid {
+            get {
+                return ResourceManager.GetString("RetrieveByGuid", resourceCulture);
             }
         }
     }

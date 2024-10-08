@@ -11,11 +11,13 @@ namespace BookTracer.Controls
             InitializeComponent();
             this.serviceProvider = serviceProvider;
         }
-        public UserControl ActiveControl { get; set; }
+        public UserControl? ActiveMainControl { get; set; }
 
         private void buttonBookList_Click(object sender, EventArgs e)
         {
+            ActiveMainControl = serviceProvider.GetRequiredService<ControlBookList>();
             panelForControls.Controls.Clear();
+            panelForControls.Controls.Add(ActiveMainControl);
         }
 
         private void buttonAuthorList_Click(object sender, EventArgs e)
@@ -25,14 +27,16 @@ namespace BookTracer.Controls
 
         private void buttonAddBook_Click(object sender, EventArgs e)
         {
-            ActiveControl = serviceProvider.GetRequiredService<ControlAddBook>();
+            ActiveMainControl = serviceProvider.GetRequiredService<ControlAddBook>();
             panelForControls.Controls.Clear();
-            panelForControls.Controls.Add(ActiveControl);
+            panelForControls.Controls.Add(ActiveMainControl);
         }
 
         private void buttonImport_Click(object sender, EventArgs e)
         {
-
+            ActiveMainControl = serviceProvider.GetRequiredService<ControlImport>();
+            panelForControls.Controls.Clear();
+            panelForControls.Controls.Add(ActiveMainControl);
         }
     }
 }

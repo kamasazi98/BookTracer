@@ -46,6 +46,29 @@ namespace BookTracer.Infrastracture.Repositories
             }
             return author;
         }
+        public IAuthor Retrieve(Guid id)
+        {
+            Author? author = null;
+            string query = Queries.RetrieveByGuid;
+            using var connection = dbContext.RetrieveConnection();
+            connection.Open();
+
+            using var command = dbContext.RetrieveCommand(query, connection);
+            command.Parameters.AddWithValue("@Id", id);
+
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                author = new Author()
+                    .Load(
+                        reader.GetString(reader.GetOrdinal("Id")),
+                        reader.GetString(reader.GetOrdinal("FirstName")),
+                        reader.GetString(reader.GetOrdinal("LastName")),
+                        new List<Book>()
+                    );
+            }
+            return author;
+        }
         public Author Create()
             => new Author();
 

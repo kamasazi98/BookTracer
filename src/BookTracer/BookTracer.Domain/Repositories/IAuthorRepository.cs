@@ -11,6 +11,7 @@ namespace BookTracer.Domain.Repositories
     {
         Author Create();
         IAuthor? Retrieve(string firstName, string lastName);
+        IAuthor Retrieve(Guid id);
         List<IAuthor> RetrieveAll();
         void Save(IAuthor author);
     }

@@ -1,6 +1,7 @@
 ﻿using BookTracer.Domain.Repositories;
 using BookTracer.Events;
 using BookTracer.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,9 @@ namespace BookTracer.Controls
             InitializeComponent();
             this.serviceProvider = serviceProvider;
 
-            Context = new AddBookViewModel();
+            Context = new AddBookViewModel(
+                serviceProvider.GetRequiredService<IBookRepository>(),
+                serviceProvider.GetRequiredService<IAuthorRepository>());
             InitializeControls();
         }
         public void InitializeControls()

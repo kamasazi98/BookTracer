@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BookTracer.ViewModels
 {
-    public class AddBookViewModel : INotifyPropertyChanged
+    public class AddBookViewModel : INotifyPropertyChanged, IDisposable
     {
         private readonly IBookRepository bookRepository;
         private readonly IAuthorRepository authorRepository;
@@ -199,5 +199,9 @@ namespace BookTracer.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
+        }
     }
 }

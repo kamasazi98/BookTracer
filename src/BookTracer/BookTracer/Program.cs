@@ -6,7 +6,7 @@ namespace BookTracer
 {
     internal static class Program
     {
-        private static IServiceProvider serviceProvider;
+        private static IServiceProvider? serviceProvider;
         [STAThread]
         static void Main()
         {

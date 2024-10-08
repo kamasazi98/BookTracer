@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookTracer.Domain.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,23 @@ namespace BookTracer.Domain.Domains
 {
     public class Book : IBook
     {
+        private IAuthor? author;
+        private readonly IAuthorRepository authorRepository;
+
+        public Book(IAuthorRepository authorRepository)
+        {
+            this.authorRepository = authorRepository;
+            Name = string.Empty;
+        }
         public Guid Id { get; private set; }
         public string Name { get; private set; }
         public Guid AuthorId { get; private set; }
         public int Rate { get; private set; }
-        public Author Author { get; private set; }
+        public IAuthor Author
+        {
+            get => author == null ? author = authorRepository.Retrieve(AuthorId) : author;
+            private set => author = value;
+        }
         public Book New(string name, Guid authorId, int rate)
         {
             Id = Guid.NewGuid();
@@ -25,11 +38,10 @@ namespace BookTracer.Domain.Domains
         {
             Id = Guid.Parse(id);
             Name = name;
-            AuthorId = Guid.Parse(authorId); ;
+            AuthorId = Guid.Parse(authorId);
             Rate = rate;
             return this;
         }
-
     }
 
     public interface IBook
@@ -37,7 +49,8 @@ namespace BookTracer.Domain.Domains
         Guid Id { get; }
         string Name { get; }
         Guid AuthorId { get; }
-        Author Author { get; }
+        IAuthor Author { get; }
+        int Rate { get; }
 
         Book New(string name, Guid authorId, int rate);
     }

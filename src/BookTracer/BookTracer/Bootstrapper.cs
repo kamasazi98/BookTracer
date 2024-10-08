@@ -26,6 +26,7 @@ namespace BookTracer
             services.AddScoped<FormMain>();
             services.AddTransient<ControlAddBook>();
             services.AddTransient<ControlImport>();
+            services.AddTransient<ControlBookList>();
 
             return services;
         }
