@@ -124,4 +124,16 @@
   <data name="CreateTableBooks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Books\CreateTableBooks.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="InsertAuthor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Authors\InsertAuthor.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="InsertBook" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Books\InsertBook.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UpdateAuthor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Authors\UpdateAuthor.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UpdateBook" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Books\UpdateBook.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

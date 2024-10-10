@@ -61,10 +61,10 @@ namespace BookTracer.Infrastracture.Sql.Commands {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CREATE TABLE IF NOT EXISTS Authors (
-        ///Id TEXT PRIMARY KEY,
-        ///FirstName TEXT NOT NULL,
-        ///LastName TEXT NOT NULL
+        ///   Looks up a localized string similar to CREATE TABLE IF NOT EXISTS [Authors] (
+        ///[Id] TEXT PRIMARY KEY,
+        ///[FirstName] TEXT NOT NULL,
+        ///[LastName] TEXT NOT NULL
         ///);.
         /// </summary>
         internal static string CreateTableAuthors {
@@ -74,16 +74,59 @@ namespace BookTracer.Infrastracture.Sql.Commands {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CREATE TABLE IF NOT EXISTS Books (
-        ///Id TEXT PRIMARY KEY,
-        ///Name TEXT NOT NULL,
-        ///AuthorId TEXT NOT NULL,
-        ///FOREIGN KEY (AuthorId) REFERENCES Authors(Id) ON DELETE CASCADE
+        ///   Looks up a localized string similar to CREATE TABLE IF NOT EXISTS [Books] (
+        ///[Id] TEXT PRIMARY KEY,
+        ///[Name] TEXT NOT NULL,
+        ///[AuthorId] TEXT NOT NULL,
+        ///[Rate] INT NOT NULL,
+        ///FOREIGN KEY ([AuthorId]) REFERENCES [Authors]([Id]) ON DELETE CASCADE
         ///);.
         /// </summary>
         internal static string CreateTableBooks {
             get {
                 return ResourceManager.GetString("CreateTableBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO Authors
+        ///VALUES (@Id, @FirstName, @LastName).
+        /// </summary>
+        internal static string InsertAuthor {
+            get {
+                return ResourceManager.GetString("InsertAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO Books
+        ///VALUES (@Id, @Name, @AuthorId, @Rate).
+        /// </summary>
+        internal static string InsertBook {
+            get {
+                return ResourceManager.GetString("InsertBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE Authors
+        ///SET [FirstName] = @FirstName, [LastName] = @LastName
+        ///WHERE Id = @Id.
+        /// </summary>
+        internal static string UpdateAuthor {
+            get {
+                return ResourceManager.GetString("UpdateAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE Books
+        ///SET [Name] = @Name, [AuthorId] = @AuthorId, [Rate] = @Rate
+        ///WHERE [Id] = @Id.
+        /// </summary>
+        internal static string UpdateBook {
+            get {
+                return ResourceManager.GetString("UpdateBook", resourceCulture);
             }
         }
     }

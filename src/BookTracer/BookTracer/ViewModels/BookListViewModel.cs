@@ -46,7 +46,7 @@ namespace BookTracer.ViewModels
         public int No { get; }
         public string BookName => Domain.Name;
         public int BookRating => Domain.Rate;
-        public string AuthorFirstName => Domain?.Author.FirstName ?? string.Empty;
-        public string AuthorLastName => Domain?.Author.LastName ?? string.Empty;
+        public string AuthorFirstName => Domain?.Author?.FirstName ?? string.Empty;
+        public string AuthorLastName => Domain?.Author?.LastName ?? string.Empty;
     }
 }

@@ -52,9 +52,26 @@ namespace BookTracer.Controls
                 advancedDataGridViewAuthors.SetFilterAndSortEnabled(column, true);
             }
             advancedDataGridViewAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             advancedDataGridViewAuthors.SelectionChanged += AdvancedDataGridViewAuthors_SelectionChanged;
 
+            advancedDataGridViewAuthorBooks.DataSource = context.AuthorBooksDataSource;
+            foreach (DataGridViewColumn column in advancedDataGridViewAuthorBooks.Columns)
+            {
+                switch (column.Name)
+                {
+                    case nameof(BookElementViewModel.No):
+                        column.HeaderText = "Lp.";
+                        break;
+                    case nameof(BookElementViewModel.BookName):
+                        column.HeaderText = "Nazwa książki";
+                        break;
+                    case nameof(BookElementViewModel.BookRating):
+                        column.HeaderText = "Ocena";
+                        break;
+                }
+                advancedDataGridViewAuthorBooks.SetFilterAndSortEnabled(column, true);
+            }
+            advancedDataGridViewAuthorBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void AdvancedDataGridViewAuthors_SelectionChanged(object? sender, EventArgs e)

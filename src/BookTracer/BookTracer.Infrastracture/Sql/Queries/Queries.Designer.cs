@@ -62,16 +62,15 @@ namespace BookTracer.Infrastracture.Sql.Queries {
         
         /// <summary>
         ///   Looks up a localized string similar to SELECT
-        ///b.[Id] 
-        ///, b.[Name] 
-        ///, b.[AuthorId]
-        ///, b.[Rate]
-        ///FROM [Books] b
-        ///.
+        ///a.[Id] 
+        ///, a.[FirstName] 
+        ///, a.[LastName]
+        ///FROM [Authors] a
+        ///--ORDER BY [b].[Name].
         /// </summary>
-        internal static string RetrieveAll {
+        internal static string RetrieveAllAuthors {
             get {
-                return ResourceManager.GetString("RetrieveAll", resourceCulture);
+                return ResourceManager.GetString("RetrieveAllAuthors", resourceCulture);
             }
         }
         
@@ -82,7 +81,38 @@ namespace BookTracer.Infrastracture.Sql.Queries {
         ///, b.[AuthorId]
         ///, b.[Rate]
         ///FROM [Books] b
-        ///WHERE [a].[Name] = @BookName 
+        ///--ORDER BY [b].[Name].
+        /// </summary>
+        internal static string RetrieveAllBooks {
+            get {
+                return ResourceManager.GetString("RetrieveAllBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///b.[Id] 
+        ///, b.[Name] 
+        ///, b.[AuthorId]
+        ///, b.[Rate]
+        ///FROM [Books] b
+        ///WHERE [b].[AuthorId] = @AuthorId 
+        ///.
+        /// </summary>
+        internal static string RetrieveBookAuthorId {
+            get {
+                return ResourceManager.GetString("RetrieveBookAuthorId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT
+        ///b.[Id] 
+        ///, b.[Name] 
+        ///, b.[AuthorId]
+        ///, b.[Rate]
+        ///FROM [Books] b
+        ///WHERE [b].[Name] = @BookName 
         ///.
         /// </summary>
         internal static string RetrieveByBookName {

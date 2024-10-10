@@ -21,13 +21,13 @@ namespace BookTracer.Services
         public void Import(string filePath)
         {
             var data = File.ReadAllLines(filePath)
-                .Select(line => line.Split(','))
+                .Select(line => line.Split(';'))
                 .Select(e => new
                 {
-                    BookName = e[0],
-                    AuthorFirstName = e[1],
-                    AuthorLastName = e[2],
-                    Rate = int.Parse(e[3])
+                    AuthorFirstName = e[0],
+                    AuthorLastName = e[1],
+                    BookName = e[2],
+                    Rate = e[3]
                 });
 
             foreach (var dataRow in data)
@@ -44,7 +44,7 @@ namespace BookTracer.Services
                     authorRepository.Save(author);
                 }
 
-                book.New(dataRow.BookName, author.Id, dataRow.Rate);
+                book.New(dataRow.BookName, author.Id, int.Parse(dataRow.Rate));
                 bookRepository.Save(book);
             }
         }

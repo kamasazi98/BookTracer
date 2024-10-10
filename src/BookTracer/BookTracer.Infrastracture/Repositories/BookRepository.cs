@@ -1,6 +1,7 @@
 ﻿using BookTracer.Domain.Domains;
 using BookTracer.Domain.Repositories;
 using BookTracer.Infrastracture.Database;
+using BookTracer.Infrastracture.Sql.Commands;
 using BookTracer.Infrastracture.Sql.Queries;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BookTracer.Infrastracture.Repositories
 {
@@ -22,9 +24,28 @@ namespace BookTracer.Infrastracture.Repositories
             this.dbContext = dbContext;
             this.serviceProvider = serviceProvider;
         }
-        public Book Retrieve(Guid authorId)
+        public List<Book> Retrieve(Guid authorId)
         {
-            throw new NotImplementedException();
+            List<Book> destiantion = new List<Book>();
+            string query = Queries.RetrieveBookAuthorId;
+            using var connection = dbContext.RetrieveConnection();
+            connection.Open();
+
+            using var command = dbContext.RetrieveCommand(query, connection);
+            command.Parameters.AddWithValue("@AuthorId", authorId.ToString());
+
+            using var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                destiantion.Add(new Book(serviceProvider.GetRequiredService<IAuthorRepository>())
+                    .Load(
+                        reader.GetString(reader.GetOrdinal("Id")),
+                        reader.GetString(reader.GetOrdinal("Name")),
+                        reader.GetString(reader.GetOrdinal("AuthorId")),
+                        reader.GetInt32(reader.GetOrdinal("Rate"))
+                    ));
+            }
+            return destiantion;
         }
         public Book? Retrieve(string bookName)
         {
@@ -56,11 +77,10 @@ namespace BookTracer.Infrastracture.Repositories
         }
         public Book Create()
             => new Book(serviceProvider.GetRequiredService<IAuthorRepository>());
-
         public List<Book> RetrieveAll()
         {
             List<Book> destiantion = new List<Book>();
-            string query = Queries.RetrieveAll;
+            string query = Queries.RetrieveAllBooks;
             using var connection = dbContext.RetrieveConnection();
             connection.Open();
 
@@ -79,10 +99,26 @@ namespace BookTracer.Infrastracture.Repositories
             }
             return destiantion;
         }
-
         public void Save(Book book)
         {
-            throw new NotImplementedException();
+            string commandSql = string.Empty;
+            using var connection = dbContext.RetrieveConnection();
+            connection.Open();
+
+            if (book.Id == Guid.Empty)
+            {
+                commandSql = Commands.InsertBook;
+                book.SetId(Guid.NewGuid());
+            }
+            else
+                commandSql = Commands.UpdateBook;
+
+            using var command = dbContext.RetrieveCommand(commandSql, connection);
+            command.Parameters.AddWithValue("@Id", book.Id.ToString());
+            command.Parameters.AddWithValue("@Name", book.Name);
+            command.Parameters.AddWithValue("@AuthorId", book.AuthorId.ToString());
+            command.Parameters.AddWithValue("@Rate", book.Rate);
+            command.ExecuteNonQuery();
         }
     }
 }

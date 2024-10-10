@@ -4,4 +4,4 @@ b.[Id]
 , b.[AuthorId]
 , b.[Rate]
 FROM [Books] b
-WHERE [b].[Name] = @BookName 
+WHERE [b].[AuthorId] = @AuthorId 

@@ -10,7 +10,7 @@ namespace BookTracer.Domain.Repositories
     public interface IBookRepository
     {
         List<Book> RetrieveAll();
-        Book Retrieve(Guid authorId);
+        List<Book> Retrieve(Guid authorId);
         void Save(Book book);
         Book Create();
         Book? Retrieve(string bookName);

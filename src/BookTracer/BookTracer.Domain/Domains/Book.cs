@@ -28,7 +28,6 @@ namespace BookTracer.Domain.Domains
         }
         public Book New(string name, Guid authorId, int rate)
         {
-            Id = Guid.NewGuid();
             Name = name;
             AuthorId = authorId;
             Rate = rate;
@@ -42,6 +41,10 @@ namespace BookTracer.Domain.Domains
             Rate = rate;
             return this;
         }
+        public void SetId(Guid id)
+        {
+            Id = id;
+        }
     }
 
     public interface IBook
@@ -53,5 +56,6 @@ namespace BookTracer.Domain.Domains
         int Rate { get; }
 
         Book New(string name, Guid authorId, int rate);
+        void SetId(Guid id);
     }
 }

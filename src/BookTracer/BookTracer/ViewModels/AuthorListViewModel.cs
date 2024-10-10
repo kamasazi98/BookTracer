@@ -39,7 +39,7 @@ namespace BookTracer.ViewModels
 
             int no = 1;
             foreach (var book in author.Domain.Books)
-                AuthorBooksDataSource.Add(new BookElementViewModel(book, no));
+                AuthorBooksDataSource.Add(new BookElementViewModel(book, no++));
         }
         public void Dispose()
         {

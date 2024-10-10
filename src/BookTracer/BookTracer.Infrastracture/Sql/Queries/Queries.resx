@@ -118,8 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="RetrieveAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Books\RetrieveAll.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="RetrieveAllAuthors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Authors\RetrieveAllAuthors.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RetrieveAllBooks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Books\RetrieveAllBooks.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RetrieveBookAuthorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Books\RetrieveBookAuthorId.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="RetrieveByBookName" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Books\RetrieveByBookName.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
