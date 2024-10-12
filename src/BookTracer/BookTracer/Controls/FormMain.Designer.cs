@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             panelLeft = new Panel();
             buttonImport = new Button();
             buttonAddBook = new Button();
@@ -182,10 +183,11 @@
             Controls.Add(panelForControls);
             Controls.Add(panelFormTopTitle);
             Controls.Add(panelLeft);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Book Tracer";
             panelLeft.ResumeLayout(false);
             panelAppName.ResumeLayout(false);
             panelAppName.PerformLayout();
