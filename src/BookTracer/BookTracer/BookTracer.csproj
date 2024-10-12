@@ -7,7 +7,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <BaseOutputPath>..\bin\</BaseOutputPath>
+    <ApplicationIcon>search_book_open_search_locate_6178.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\search_book_open_search_locate_6178.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DG.AdvancedDataGridView" Version="1.2.29301.14" />
