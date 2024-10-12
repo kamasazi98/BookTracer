@@ -28,50 +28,63 @@ namespace BookTracer.Controls
         }
         private void InitializeBinding()
         {
-            advancedDataGridViewAuthors.DataSource = context.AuthorsDataSource;
-            foreach (DataGridViewColumn column in advancedDataGridViewAuthors.Columns)
-            {
-                switch (column.Name)
-                {
-                    case nameof(AuthorListElementViewModel.No):
-                        column.HeaderText = "Lp.";
-                        break;
-                    case nameof(AuthorListElementViewModel.Id):
-                        column.Visible = false;
-                        break;
-                    case nameof(AuthorListElementViewModel.Domain):
-                        column.Visible = false;
-                        break;
-                    case nameof(AuthorListElementViewModel.FirstName):
-                        column.HeaderText = "Imię autora";
-                        break;
-                    case nameof(AuthorListElementViewModel.LastName):
-                        column.HeaderText = "Nazwisko autora";
-                        break;
-                }
-                advancedDataGridViewAuthors.SetFilterAndSortEnabled(column, true);
-            }
-            advancedDataGridViewAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            advancedDataGridViewAuthors.SelectionChanged += AdvancedDataGridViewAuthors_SelectionChanged;
+            InitializeAuthors();
+            InitializeBooks();
 
-            advancedDataGridViewAuthorBooks.DataSource = context.AuthorBooksDataSource;
-            foreach (DataGridViewColumn column in advancedDataGridViewAuthorBooks.Columns)
+            void InitializeBooks()
             {
-                switch (column.Name)
+                advancedDataGridViewAuthorBooks.DataSource = context.AuthorBooksDataSource;
+                foreach (DataGridViewColumn column in advancedDataGridViewAuthorBooks.Columns)
                 {
-                    case nameof(BookElementViewModel.No):
-                        column.HeaderText = "Lp.";
-                        break;
-                    case nameof(BookElementViewModel.BookName):
-                        column.HeaderText = "Nazwa książki";
-                        break;
-                    case nameof(BookElementViewModel.BookRating):
-                        column.HeaderText = "Ocena";
-                        break;
+                    switch (column.Name)
+                    {
+                        case nameof(BookElementViewModel.No):
+                            column.HeaderText = "Lp.";
+                            break;
+                        case nameof(BookElementViewModel.BookName):
+                            column.HeaderText = "Nazwa książki";
+                            break;
+                        case nameof(BookElementViewModel.BookRating):
+                            column.HeaderText = "Ocena";
+                            break;
+                    }
                 }
-                advancedDataGridViewAuthorBooks.SetFilterAndSortEnabled(column, true);
+                advancedDataGridViewAuthorBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                advancedDataGridViewAuthorBooks.FilterAndSortEnabled = false;
+
             }
-            advancedDataGridViewAuthorBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            void InitializeAuthors()
+            {
+                advancedDataGridViewAuthors.FilterAndSortEnabled = true;
+                advancedDataGridViewAuthors.AutoGenerateColumns = true;
+                advancedDataGridViewAuthors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                advancedDataGridViewAuthors.AllowUserToAddRows = false;
+                advancedDataGridViewAuthors.SelectionChanged += AdvancedDataGridViewAuthors_SelectionChanged;
+
+                advancedDataGridViewAuthors.DataSource = new DataView(context.AuthorsDataTable);
+                foreach (DataGridViewColumn column in advancedDataGridViewAuthors.Columns)
+                {
+                    switch (column.Name)
+                    {
+                        case nameof(AuthorListElementViewModel.No):
+                            column.HeaderText = "Lp.";
+                            break;
+                        case nameof(AuthorListElementViewModel.Id):
+                            column.Visible = false;
+                            break;
+                        case nameof(AuthorListElementViewModel.Domain):
+                            column.Visible = false;
+                            break;
+                        case nameof(AuthorListElementViewModel.FirstName):
+                            column.HeaderText = "Imię autora";
+                            break;
+                        case nameof(AuthorListElementViewModel.LastName):
+                            column.HeaderText = "Nazwisko autora";
+                            break;
+                    }
+                    advancedDataGridViewAuthors.SetFilterAndSortEnabled(column, true);
+                }
+            }
         }
 
         private void AdvancedDataGridViewAuthors_SelectionChanged(object? sender, EventArgs e)
