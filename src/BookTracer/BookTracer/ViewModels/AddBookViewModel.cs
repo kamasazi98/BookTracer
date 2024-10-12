@@ -21,10 +21,17 @@ namespace BookTracer.ViewModels
         {
             this.bookRepository = bookRepository;
             this.authorRepository = authorRepository;
+            AuthorsDataSource = new List<string>();
+
+            authors = authorRepository.RetrieveAll();
+            foreach (var author in authors)
+                AuthorsDataSource.Add($"{author.LastName.Trim()} {author.FirstName.Trim()}");
         }
 
         #region Properties
         private int rate;
+        private List<IAuthor> authors;
+        public List<string> AuthorsDataSource { get; set; }
         public bool FirstRate { get; set; }
         public bool SecondRate { get; set; }
         public bool ThirdRate { get; set; }
@@ -141,6 +148,7 @@ namespace BookTracer.ViewModels
 
                 book.New(BookName, author.Id, rate);
                 bookRepository.Save(book);
+                MessageBox.Show("Pomyślnie dodano książkę!");
             }
             catch (Exception ex)
             {
@@ -190,6 +198,26 @@ namespace BookTracer.ViewModels
                     IsExistingAuthor = true;
                     break;
             }
+        }
+        public void OnComboboxValueChanged(object sender)
+        {
+            if (sender == null)
+                return;
+            if (sender is not ComboBox comboBox)
+                return;
+
+            var value = comboBox.SelectedValue as string;
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            var splitted = value.Split(' ');
+            var author = authors.FirstOrDefault(x => x.FirstName.Equals(splitted[1]) && x.LastName.Equals(splitted[0]));
+
+            if (author == null)
+                return;
+
+            AuthorFirstName = author.FirstName;
+            AuthorLastName = author.LastName;
         }
 
         #region NotifyPropertyChanged

@@ -47,7 +47,11 @@ namespace BookTracer.Controls
 
             textBoxAuthorFirstName.DataBindings.Add(nameof(textBoxAuthorFirstName.Enabled), Context, nameof(Context.IsNewAuthor));
             textBoxAuthorLastName.DataBindings.Add(nameof(textBoxAuthorLastName.Enabled), Context, nameof(Context.IsNewAuthor));
+            comboBoxExistingAuthor.DataSource = Context.AuthorsDataSource;
             comboBoxExistingAuthor.DataBindings.Add(nameof(comboBoxExistingAuthor.Enabled), Context, nameof(Context.IsExistingAuthor));
+            comboBoxExistingAuthor.SelectedValueChanged += (sender, e) => Context.OnComboboxValueChanged(sender);
         }
+
+
     }
 }

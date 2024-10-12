@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Zuby.ADGV;
 
 namespace BookTracer.Controls
 {
@@ -17,17 +18,24 @@ namespace BookTracer.Controls
     {
         private BookListViewModel context;
         private readonly IServiceProvider serviceProvider;
+        private Dictionary<string, bool> sortDirections;
         public ControlBookList(IServiceProvider serviceProvider)
         {
             InitializeComponent();
 
             context = new BookListViewModel(serviceProvider.GetRequiredService<IBookRepository>()).Initialize();
+            sortDirections = new Dictionary<string, bool>();
             this.serviceProvider = serviceProvider;
             InitializeBinding();
         }
         private void InitializeBinding()
         {
-            advancedDataGridView.DataSource = context.BooksDataSource;
+            advancedDataGridView.FilterAndSortEnabled = true;
+            advancedDataGridView.AutoGenerateColumns = true;
+            advancedDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            advancedDataGridView.AllowUserToAddRows = false;
+
+            advancedDataGridView.DataSource = new DataView(context.BooksDataTable);
             foreach (DataGridViewColumn column in advancedDataGridView.Columns)
             {
                 switch (column.Name)
@@ -50,8 +58,6 @@ namespace BookTracer.Controls
                 }
                 advancedDataGridView.SetFilterAndSortEnabled(column, true);
             }
-
-            advancedDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }
